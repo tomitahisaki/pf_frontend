@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
 import { Main } from "@/components/Main";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
           {<div>サンプル用 index</div>}
         </Main>
       </main>
+
+      <Footer />
     </>
   );
 }
