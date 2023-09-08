@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.scss'
 import { Links } from '@/components/Links'
 import { Headline } from '@/components/Headline'
@@ -13,7 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
-        <Headline title="個人開発用サイト" description="気になるものを作ってみるサイトです" />
+        <Headline title="サイト概要" description="駆け出しエンジニアが学習のために作っているサイトです" />
+      
         <Links />
       </main>
     </>
