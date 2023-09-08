@@ -1,7 +1,6 @@
-import Head from 'next/head'
-import styles from '@/styles/Home.module.scss'
-import { Links } from '@/components/Links'
-import { Headline } from '@/components/Headline'
+import Head from "next/head";
+import styles from "@/styles/Home.module.scss";
+import { Main } from "@/components/Main";
 
 export default function Home() {
   return (
@@ -13,9 +12,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
-        <Headline title="個人開発用サイト" description="気になるものを作ってみるサイトです" />
-        <Links />
+        <Main
+          title="個人開発用サイト"
+          description="気になるものを作ってみるサイトです"
+        >
+          {<div>サンプル用 index</div>}
+        </Main>
       </main>
     </>
-  )
+  );
 }

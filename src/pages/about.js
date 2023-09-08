@@ -1,8 +1,6 @@
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.scss'
-import { Links } from '@/components/Links'
-import { Headline } from '@/components/Headline'
+import Head from "next/head";
+import styles from "@/styles/Home.module.scss";
+import { Main } from "@/components/Main";
 
 export default function Home() {
   return (
@@ -14,10 +12,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
-        <Headline title="サイト概要" description="駆け出しエンジニアが学習のために作っているサイトです" />
-      
-        <Links />
+        <Main
+          title="サイト概要"
+          description="駆け出しエンジニアが学習のために作っているサイトです"
+        >
+          {<div>サンプル用about</div>}
+        </Main>
       </main>
     </>
-  )
+  );
 }
