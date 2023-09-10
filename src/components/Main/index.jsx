@@ -8,7 +8,7 @@ export function Main(props) {
       <main className={`${styles.main}`}>
         <Headline title={props.title} description={props.description}>
           {props.children}
-        </Headline >
+        </Headline>
         <Links />
       </main>
     </>
