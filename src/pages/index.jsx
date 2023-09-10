@@ -2,45 +2,41 @@ import styles from "@/styles/Home.module.scss";
 import { Main } from "@/components/Main";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { useCallback, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const foo = 1;
-  
-  const handleClick = useCallback((e) => {
-    console.log(e.target.href);
-    e.preventDefault();
-    alert(foo);
-  }, []);
+const [count, setCount] = useState(1);
 
-  useEffect(() => {
-    console.log("mount");
-    document.body.style.backgroundColor = "lightblue";
-    return () => {
-      console.log("unmount");
-      document.body.style.backgroundColor = "";
-    };
-  }, []);
+  const handleClick = (e) => {
+  setCount(count => count + 1);
+};
 
-  return (
+useEffect(() => {
+  document.body.style.backgroundColor = "lightblue";
+  return () => {
+    document.body.style.backgroundColor = "";
+  };
+}, []);
+
+return (
     <>
-      <Header />
-      <a 
-        href="/about"
-        onClick={handleClick}
-      >
-        ボタン
-      </a>
-      <main className={`${styles.main}`}>
-        <Main
-          title="個人開発用サイト"
-          description="気になるものを作ってみるサイトです"
-        >
-          {<div>サンプル用 index</div>}
-        </Main>
-      </main>
-
-      <Footer />
+      <div className={styles.main}>
+        <Header />
+        <h1>{count}</h1>
+        <button onClick={handleClick}>
+          ボタン
+        </button>
+        <main>
+          <Main
+            title="個人開発用サイト"
+            description="気になるものを作ってみるサイトです"
+            >
+            {<div>サンプル用 index</div>}
+          </Main>
+        </main>
+  
+        <Footer />
+      </div>
     </>
   );
 }
