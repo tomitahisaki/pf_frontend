@@ -8,21 +8,22 @@ export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handleClick = useCallback(
     (e) => {
-      setCount((count) => count + 1);
+      setCount((prevCount) => prevCount + 1);
       return;
     },[count]);
 
   const handleDisplay = useCallback(
     () => {
-      setIsShow((isShow) => {
+      setIsShow((prevIsShow) => {
         // if (isShow) {
         //   return false;
         // }
         // return isShow ? false : true;
-        return !isShow;
+        return !prevIsShow;
       });
     }, []);
 
@@ -33,6 +34,17 @@ export default function Home() {
     }
     setText(e.target.value.trim());
   }, []);
+
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if (prevArray.some(item => item === text)) {
+        alert("同じ要素が存在する");
+        return prevArray;
+      }
+      const newArray = [...prevArray, text];
+      return newArray;
+    });
+  }, [text]);
 
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
@@ -52,6 +64,14 @@ export default function Home() {
           {isShow ? "非表示" : "表示"}
         </button>
         <input type="text" value={text} onChange={handleChange} />
+        <button onClick={handleAdd}>リスト追加</button>
+        <ul>
+          {array.map((item) => {
+            return (
+              <li key={item}>{item}</li>
+            )
+          })}
+        </ul>
         <main>
           <Main
             title="個人開発用サイト"
