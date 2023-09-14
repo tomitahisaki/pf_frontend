@@ -11,6 +11,9 @@ export function Header() {
         <Link legacyBehavior href="/about">
           <a className={styles.anchor}>about</a>
         </Link>
+        <Link legacyBehavior href="/spotify">
+          <a className={styles.anchor}>Spotify</a>
+        </Link>
       </header>
     </>
   );
