@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from "@/styles/Home.module.scss";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
