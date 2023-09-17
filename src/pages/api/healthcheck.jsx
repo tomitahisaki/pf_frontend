@@ -1,6 +1,6 @@
 export default async function Healthcheck(req, res) {
   const response = await fetch(
-    `${process.env.REACT_APP_API_DOMEIN}/healthcheck`,
+    `${process.env.RAILS_BASE_API}/healthcheck`,
   );
 
   const data = await response.json();
