@@ -1,25 +1,41 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import { CardContent, Typography } from "@mui/material";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+export function BasicGrid(props) {
+  const todosArray = Array.from(props.ary);
 
-export default function BasicGrid() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={6}>
-          <Item>xs=6</Item>
+    <div>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          {todosArray.map((todo, index) => (
+            <Grid key={index} item xs={6}>
+              <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                  <Typography variant="h5" component="div" noWrap>
+                    タイトル:{todo.title}
+                  </Typography>
+                  <Typography variant="body2" noWrap>
+                    説明:{todo.description}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5 }} noWrap>
+                    ステータス:{todo.status}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5 }} noWrap>
+                    作成日:{todo.created_at}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5 }} noWrap>
+                    更新日:{todo.updated_at}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </div>
   );
 }

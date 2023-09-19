@@ -8,10 +8,7 @@ export default function Home() {
     <>
       <Header />
 
-      <Main
-        title="TODOリスト"
-        description=""
-      >
+      <Main title="TODOリスト" description="">
         {<div>簡単なTODOリストを作ってみた</div>}
       </Main>
 
@@ -19,5 +16,5 @@ export default function Home() {
 
       <Footer />
     </>
-  )
+  );
 }
