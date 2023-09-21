@@ -4,7 +4,7 @@ import { BasicGrid } from "@/components/Layouts/basicGrid";
 
 export function Todo() {
   const [todos, setTodos] = useState([]);
-  
+
   useEffect(() => {
     const getTodos = async () => {
       try {
