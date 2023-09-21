@@ -56,11 +56,7 @@ export default function Spotify() {
   const renderArtists = () => {
     return artists.map((artist) => (
       <div key={artist.id}>
-        {artist.images.length ? (
-          <img witdh={"100%"} src={artist.images[0].url} alt="" />
-        ) : (
-          <div>No Image</div>
-        )}
+        {artist.images.length ? <img witdh={"100%"} src={artist.images[0].url} alt="" /> : <div>No Image</div>}
         {artist.name}
       </div>
     ));

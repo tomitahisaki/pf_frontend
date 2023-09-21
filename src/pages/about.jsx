@@ -28,10 +28,7 @@ export default function About() {
         </ul>
 
         <main>
-          <Main
-            title="サイト概要"
-            description="駆け出しエンジニアが学習のために作っているサイトです"
-          >
+          <Main title="サイト概要" description="駆け出しエンジニアが学習のために作っているサイトです">
             {<div>サンプル用about</div>}
           </Main>
         </main>

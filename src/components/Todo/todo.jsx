@@ -9,11 +9,7 @@ import Link from "next/link";
 export function MediaCard(props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="sample"
-      />
+      <CardMedia sx={{ height: 140 }} image="/static/images/cards/contemplative-reptile.jpg" title="sample" />
       <CardContent>
         <Typography gutterBottom variant="subtitle1" component="div" noWrap>
           タイトル:{props.todoDetail.title}
