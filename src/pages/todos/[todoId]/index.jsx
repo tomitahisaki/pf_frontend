@@ -11,11 +11,10 @@ export default function TodoDetail() {
   const router = useRouter();
   const todoId = router.query.todoId;
   const [todo, setTodo] = useState([]);
-
   useEffect(() => {
     const getTodo = async () => {
       try {
-        const res = await axios.get(`http://localhost:3010/todos/${todoId}`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API}/todos/${todoId}`);
         setTodo(res.data);
       } catch (err) {
         console.log(err);
