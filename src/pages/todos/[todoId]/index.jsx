@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Main } from "@/components/Main";
-import { MediaCard } from "@/components/Todo/todo";
+import { MediaCard } from "@/components/Todo/todoDetail";
 import styles from "@/styles/Home.module.scss";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -11,11 +11,10 @@ export default function TodoDetail() {
   const router = useRouter();
   const todoId = router.query.todoId;
   const [todo, setTodo] = useState([]);
-
   useEffect(() => {
     const getTodo = async () => {
       try {
-        const res = await axios.get(`http://localhost:3010/todos/${todoId}`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API}/todos/${todoId}`);
         setTodo(res.data);
       } catch (err) {
         console.log(err);
