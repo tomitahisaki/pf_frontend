@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import { CardContent, Typography } from "@mui/material";
 import Link from "next/link";
-import styles from "@/components/Layouts/basicGrid.module.scss"
+import styles from "@/components/Layouts/basicGrid.module.scss";
 
 export function BasicGrid(props) {
   const todosArray = Array.from(props.ary);
