@@ -11,7 +11,5 @@ export default function Weather() {
     fetchWeather();
   }, []);
 
-  return (
-    <div>{weather.weather && <p>東京の天気：{weather.weather[0].main}</p>}</div>
-  );
+  return <div>{weather.weather && <p>東京の天気：{weather.weather[0].main}</p>}</div>;
 }

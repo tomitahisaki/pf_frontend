@@ -29,10 +29,7 @@ export default function Home() {
         </ul>
 
         <main>
-          <Main
-            title="個人開発用サイト"
-            description="気になるものを作ってみるサイトです"
-          >
+          <Main title="個人開発用サイト" description="気になるものを作ってみるサイトです">
             {<div>サンプル用 index</div>}
           </Main>
         </main>

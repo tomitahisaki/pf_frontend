@@ -1,19 +1,15 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Link from 'next/link';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 export function MediaCard(props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="sample"
-      />
+      <CardMedia sx={{ height: 140 }} image="/static/images/cards/contemplative-reptile.jpg" title="sample" />
       <CardContent>
         <Typography gutterBottom variant="subtitle1" component="div" noWrap>
           タイトル:{props.todoDetail.title}
@@ -32,8 +28,12 @@ export function MediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href={`/todos/${props.todoDetail.id}`} size="small">Edit</Link >
-        <Link href="/todos" size="small">Back</Link>
+        <Link href={`/todos/${props.todoDetail.id}`} size="small">
+          Edit
+        </Link>
+        <Link href="/todos" size="small">
+          Back
+        </Link>
       </CardActions>
     </Card>
   );

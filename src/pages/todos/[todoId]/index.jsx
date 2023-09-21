@@ -8,9 +8,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function TodoDetail() {
-    const router = useRouter();
-    const todoId = router.query.todoId
-    const [todo, setTodo] = useState([]);
+  const router = useRouter();
+  const todoId = router.query.todoId;
+  const [todo, setTodo] = useState([]);
 
   useEffect(() => {
     const getTodo = async () => {
@@ -27,21 +27,21 @@ export default function TodoDetail() {
     }
   }, [todoId]);
 
-  if ( !todoId ){
-    return <div>Loading...</div>
+  if (!todoId) {
+    return <div>Loading...</div>;
   }
 
   return (
     <>
       <div className={styles.main}>
         <Header />
-    
+
         <Main title="TODOリスト詳細" description="">
           {<div>簡単なTODOリストの詳細です</div>}
         </Main>
-    
+
         <MediaCard todoDetail={todo} />
-    
+
         <Footer />
       </div>
     </>
