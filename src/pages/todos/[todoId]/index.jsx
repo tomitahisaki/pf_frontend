@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Main } from "@/components/Main";
-import { MediaCard } from "@/components/Todo/todo";
+import { MediaCard } from "@/components/Todo/todoDetail";
 import styles from "@/styles/Home.module.scss";
 import axios from "axios";
 import { useRouter } from "next/router";
