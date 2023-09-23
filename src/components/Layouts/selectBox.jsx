@@ -6,10 +6,12 @@ import Select from "@mui/material/Select";
 
 export default function SelectSmall(props) {
   const [status, setStatus] = React.useState("");
-
+  
   const handleChange = (event) => {
-    setStatus(event.target.value);
-    props.handleValueChange(status);
+    const selectedStatus = event.target.value;
+    setStatus(selectedStatus);
+    props.handleValueChange(selectedStatus);
+    console.log(typeof(selectedStatus));
   };
 
   return (

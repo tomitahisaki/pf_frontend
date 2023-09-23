@@ -9,15 +9,15 @@ import SelectSmall from "@/components/Layouts/selectBox";
 export function CreateTodoForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState();
 
   const handleValueChange = (newValue) => {
     setStatus(newValue);
+    console.log(status);
   };
 
   const handleSubmit = async () => {
     try {
-      console.log({ title });
       await axios.post("http://localhost:3010/todos", {
         todo: {
           title,
@@ -25,10 +25,9 @@ export function CreateTodoForm() {
           status,
         },
       });
-      console.log("sssss");
       setTitle("");
       setDescription("");
-      setStatus("");
+      setStatus();
 
       window.location.reload();
     } catch (error) {
