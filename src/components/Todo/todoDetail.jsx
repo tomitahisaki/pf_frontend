@@ -28,7 +28,7 @@ export function MediaCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Link href={`/todos/${props.todoDetail.id}`} size="small">
+        <Link href={`/todos/${props.todoDetail.id}/edit`} size="small">
           Edit
         </Link>
         <Link href="/todos" size="small">
