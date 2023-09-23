@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import * as React from "react";
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import Textarea from "@mui/joy/Textarea";
 import SelectSmall from "@/components/Layouts/selectBox";
+import { useRouter } from "next/router";
 
 export function EditTodo(props) {
   const [id, setId] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState();
+  const router = useRouter();
 
   useEffect(() => {
     const getTodo = async () => {
@@ -18,20 +20,19 @@ export function EditTodo(props) {
         // const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API}/todos/${todoId}`);
         //
         // const { title, description, status } = res.deta;
-        const { id, title, description, status } = props.todoDetail;
-        setId(id);
-        setTitle(title);
-        setDescription(description);
-        setStatus(status);
+        setId(props.todoDetail.id);
+        setTitle(props.todoDetail.title);
+        setDescription(props.todoDetail.description);
+        setStatus(props.todoDetail.status);
       } catch (err) {
         console.log(err);
       }
     };
 
-    if (id) {
+    if (props.todoDetail.id) {
       getTodo();
     }
-  }, []);
+  }, [props.todoDetail]);
 
   if (!id) {
     return <div>Loading...</div>;
@@ -41,20 +42,18 @@ export function EditTodo(props) {
     setStatus(newValue);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      await axios.put(`http://localhost:3010/todos${id}`, {
+      await axios.put(`${process.env.NEXT_PUBLIC_BASE_API}/todos/${id}`, {
         todo: {
           title,
           description,
           status,
         },
       });
-      setTitle("");
-      setDescription("");
-      setStatus("");
 
-      window.location.reload();
+      router.push(`/todos/${id}`);
     } catch (error) {
       console.error(error);
     }
@@ -91,7 +90,7 @@ export function EditTodo(props) {
 
           <SelectSmall handleValueChange={handleValueChange} />
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Update</Button>
         </form>
       </Box>
     </>

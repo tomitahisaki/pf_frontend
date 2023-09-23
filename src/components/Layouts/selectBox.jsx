@@ -11,7 +11,6 @@ export default function SelectSmall(props) {
     const selectedStatus = event.target.value;
     setStatus(selectedStatus);
     props.handleValueChange(selectedStatus);
-    console.log(typeof selectedStatus);
   };
 
   return (
