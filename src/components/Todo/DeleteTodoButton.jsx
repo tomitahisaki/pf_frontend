@@ -12,17 +12,15 @@ export function DeleteTodoButton(props) {
     try {
       await axios.delete(`${process.env.NEXT_PUBLIC_BASE_API}/todos/${props.id}`);
 
-      router.push('/todos');
-    } catch(error) {
+      router.push("/todos");
+    } catch (error) {
       console.error(error);
     }
   };
 
   return (
     <>
-      <button onClick={handleDelete}>
-        Delete
-      </button>
+      <button onClick={handleDelete}>Delete</button>
     </>
-  )
+  );
 }
