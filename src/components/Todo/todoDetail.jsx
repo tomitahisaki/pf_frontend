@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import { DeleteTodoButton } from "@/components/Todo/DeleteTodoButton";
 
 export function MediaCard(props) {
   return (
@@ -34,6 +35,7 @@ export function MediaCard(props) {
         <Link href="/todos" size="small">
           Back
         </Link>
+        <DeleteTodoButton id={props.todoDetail.id} />
       </CardActions>
     </Card>
   );
